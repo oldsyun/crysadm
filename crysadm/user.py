@@ -79,7 +79,7 @@ def public_invitation():
         inv_code = session.get('invitation_code')
         session['invitation_code'] = None
 
-    HTTP_X_REAL_IP = request.environ.get('HTTP_X_REAL_IP')
+    HTTP_X_REAL_IP = request.environ.get('REMOTE_ADDR')
 
     return render_template('public_invitation.html', err_msg=err_msg, inv_code=inv_code, ip=HTTP_X_REAL_IP)
 
@@ -92,7 +92,7 @@ def public_inv_code():
         r_session.set(public_key, json.dumps(dict(diary=[])))
     public_info = json.loads(r_session.get(public_key).decode('utf-8'))
 
-    HTTP_X_REAL_IP = request.environ.get('HTTP_X_REAL_IP')
+    HTTP_X_REAL_IP = request.environ.get('REMOTE_ADDR')
     for public_code in public_info.get('diary'):
         if HTTP_X_REAL_IP == public_code.get('ip'):
             session['error_message'] = '您已经获取过邀请码了,请勿重复获取.'
@@ -240,7 +240,7 @@ def guest_diary(request, username):
     HTTP_HOST = request.environ.get('HTTP_HOST') #地址
     PATH_INFO = request.environ.get('PATH_INFO') #后缀
     REQUEST_METHOD = request.environ.get('REQUEST_METHOD') #方式
-    HTTP_X_REAL_IP = request.environ.get('HTTP_X_REAL_IP') #IP
+    HTTP_X_REAL_IP = request.environ.get('REMOTE_ADDR') #IP
     REMOTE_PORT = request.environ.get('REMOTE_PORT') #端口
 
     http = '%s://%s%s' % (url_scheme, HTTP_HOST, PATH_INFO) #链接
