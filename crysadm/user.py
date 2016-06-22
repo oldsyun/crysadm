@@ -377,7 +377,7 @@ def user_change_property(field, value):
         session['action'] = 'profile'
     if field == 'collect_crystal_modify':
         try:
-            if int(str(request.values.get('collect_crystal_modify'))) >= 3000:
+            if int(str(request.values.get('collect_crystal_modify'))) >= 300:
                 user_info['collect_crystal_modify'] = int(str(request.values.get('collect_crystal_modify')))
         except ValueError:
             return redirect(url_for('user_profile'))
