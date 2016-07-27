@@ -7,16 +7,16 @@
 
 sudo apt-get update 
 
-#安装python3.5
+#安装python3
 
-sudo apt-get install -y python3.5 python3.5-dev 
+sudo apt-get install -y python3 python3-dev 
 
 #安装pip，确保本脚本和get-pip.py 文件在一个文件夹
 BASE_DIR="$( cd "$( dirname "$0"  )" && pwd  )"
 sudo chmod +x ${BASE_DIR}/get-pip.py
-sudo python3.5 ${BASE_DIR}/get-pip.py
+sudo python3 ${BASE_DIR}/get-pip.py
 
-sudo pip3.5 install redis && sudo pip3.5 install requests && sudo pip3.5 install flask && sudo pip3.5 install flask-mail
+sudo pip3 install redis && sudo pip3 install requests && sudo pip3 install flask && sudo pip3 install flask-mail
 
 #安装redis-server
 sudo apt-get install -y redis-server 
