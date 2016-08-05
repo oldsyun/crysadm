@@ -9,7 +9,7 @@ from urllib.parse import urlparse, parse_qs
 requests.packages.urllib3.disable_warnings()
 
 # 迅雷API接口
-appversion = '3.1.1'
+appversion = '3.1.6'
 server_address = 'http://2-api-red.xunlei.com'
 agent_header = {'user-agent': "RedCrystal/3.0.0 (iPhone; iOS 9.9; Scale/2.00)"}
 
